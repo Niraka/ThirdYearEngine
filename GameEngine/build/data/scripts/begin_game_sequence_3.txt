@@ -1,0 +1,6 @@
+setEntityPosition(iMenuEnemyId, 0.0, 0.0, 1.1)
+setEntityOrientation(iMenuEnemyId, 0.0, 135.0, 1.0)
+setEntityVisible(iMenuEnemyId, true)
+
+createTimer(hide_timer, 0.2, begin_game_sequence_hide)
+createTimer(seq_3_expire, 0.4, begin_game_sequence_4)

@@ -1,0 +1,1 @@
+createTimer(bgs2l, 0.0, begin_game_sequence_2_loop1)

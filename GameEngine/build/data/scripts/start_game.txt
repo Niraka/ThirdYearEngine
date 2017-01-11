@@ -1,0 +1,34 @@
+# Activate the scene and reset the lights to their default states
+activateScene(game)
+activateControlSet(iGameControlSetId)
+
+playMusic(game_music, true, 3.0)
+setEntityGroupRenderable(menu_entity_group, false)
+setEntityGroupRenderable(game_entity_group, true)
+setCameraPosition(iGameCameraId, 0.0, 4.5, 4.0)
+setCameraTarget(iGameCameraId, 0.0, 4.5, 5.0)
+
+assign(fGameAmbientLightColour, 0.0)
+
+setSpotLightPosition(iGamePlayerSpotLightId, 0.0, 4.5, 4.0)
+setSpotLightTarget(iGamePlayerSpotLightId, 0.0, 4.5, 5.0)
+setSpotLightCone(iGamePlayerSpotLightId, 30.0)
+setSpotLightColour(iGamePlayerSpotLightId, 1.0, 1.0, 1.0)
+
+enableAmbientLight(iGameAmbientLightId)
+enableSpotLight(iGamePlayerSpotLightId)
+
+# Reset the player
+setEntityPosition(iPlayerEntityId, 0.0, 0.0, 0.0)
+setEntityOrientation(iPlayerEntityId, 0.0, 0.0, 0.0)
+
+# Reset the dynamic entities
+
+# Trigger the light fade-in effect
+assign(iGameAmbientLightFadeTicks, 20)
+executeScript(game_light_fade_in)
+
+###############
+# Resets the game to its initial state so that it may be replayed.
+# This involves setting the position, orientation and general state of entities
+#

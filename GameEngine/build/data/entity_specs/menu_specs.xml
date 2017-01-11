@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity_spec>
+	<name>floor</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>floor</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>shelf</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>shelf</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>lamp</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>lamp</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>trolley</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>trolley</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>doughnut</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>doughnut</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>doughnut_box</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>doughnut_box</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>bread</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+	</components>
+	<component_config>
+		<model_name>bread</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>monster</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+		<audio>true</audio>
+	</components>
+	<component_config>
+		<model_name>monster</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>wall</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+		<audio>false</audio>
+	</components>
+	<component_config>
+		<model_name>wall</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>ceiling</name>
+	<components>
+		<actor>true</actor>
+		<physics>true</physics>
+		<audio>false</audio>
+	</components>
+	<component_config>
+		<model_name>ceiling</model_name>
+	</component_config>
+</entity_spec>
+<entity_spec>
+	<name>begin_text</name>
+	<components>
+		<actor>true</actor>
+		<physics>false</physics>
+		<audio>false</audio>
+	</components>
+	<component_config>
+		<model_name>begin_text</model_name>
+	</component_config>
+</entity_spec>

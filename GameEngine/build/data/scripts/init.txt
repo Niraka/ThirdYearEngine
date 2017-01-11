@@ -1,0 +1,10 @@
+loadScript(null, null.txt)
+loadScript(load_splash_assets, load_splash_assets.txt)
+loadScript(create_splash, create_splash.txt)
+executeScript(load_splash_assets)
+executeScript(create_splash)
+
+################################
+# This script is called by the engine on start-up. The name MUST be "init.txt". 
+# This script will load the bare minimum assets to create and display a splash
+# screen - which will in turn be used to load the main menu in the background

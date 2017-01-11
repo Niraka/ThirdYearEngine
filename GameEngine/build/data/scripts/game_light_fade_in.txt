@@ -1,0 +1,8 @@
+add(iGameAmbientLightFadeTicks, -1)
+add(fGameAmbientLightColour, 0.0125)
+setAmbientLightColour(iGameAmbientLightId, fGameAmbientLightColour, fGameAmbientLightColour, fGameAmbientLightColour)
+
+if(lessThan(iGameAmbientLightFadeTicks, 1), null, game_light_fade_in_loop)
+
+###############################
+# Fades in the light over time

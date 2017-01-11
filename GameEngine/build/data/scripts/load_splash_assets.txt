@@ -1,0 +1,4 @@
+loadGUI(splash_gui, splash_gui.txt)
+
+##################################################
+# Loads assets that are used on the splash screen

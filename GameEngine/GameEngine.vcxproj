@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DE379EEE-4660-4D7E-8339-35F49A439CD7}</ProjectGuid>
+    <RootNamespace>GameEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)source;$(SourcePath)</SourcePath>
+    <OutDir>$(ProjectDir)build\\$(Configuration)\\</OutDir>
+    <IntDir>temp\\$(Configuration)\\</IntDir>
+    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)source;$(SourcePath)</SourcePath>
+    <OutDir>$(ProjectDir)build\\$(Configuration)\\</OutDir>
+    <IntDir>temp\\$(Configuration)\\</IntDir>
+    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)libs\\glm;$(ProjectDir)libs\\GLFW\\include;$(ProjectDir)libs\\glew-1.13.0\\include;$(ProjectDir)libs\\tinyxml;$(ProjectDir)libs\\SFML\\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)libs\\GLFW\\lib-msvc120;$(ProjectDir)libs\\glew-1.13.0\\lib\\Release\\Win32;$(ProjectDir)libs\\SFML\\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32.lib;opengl32.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRT</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)libs\\glm;$(ProjectDir)libs\\GLFW\\include;$(ProjectDir)libs\\glew-1.13.0\\include;$(ProjectDir)libs\\tinyxml;$(ProjectDir)libs\\SFML\\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)libs\\GLFW\\lib-msvc120;$(ProjectDir)libs\\glew-1.13.0\\lib\\Release\\Win32;$(ProjectDir)libs\\SFML\\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32.lib;opengl32.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="libs\tinyxml\tinyxml2.cpp" />
+    <ClCompile Include="source\Game\Modules\EditorModule.cpp" />
+    <ClCompile Include="source\Game\Modules\Function.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionActivateControlSet.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionActivateScene.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionAdd.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionAssign.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionBindCameraToEntity.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionBindEntityKeyAction.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionBindEntityMovementMapping.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionBindScriptKeyAction.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionBindSpotLightToEntity.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateAmbientLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateCamera.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateControlSet.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateEntity.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateEntityGroup.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreatePointLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateScene.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateSound.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateSoundChannel.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateSpotLight..cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionCreateTimer.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeactivateControlSet.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeactivateScene.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteAmbientLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteCamera.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteControlSet.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteEntity.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeletePointLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteScene.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteSound.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDeleteSpotLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDisableAmbientLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDisableCamera.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDisablePointLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionDisableSpotLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionEnableAmbientLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionEnableCamera.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionEnablePointLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionEnableSpotLight.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionEqual.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionExecuteScript.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionGetRandomFloat.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionGetRandomInt.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionGreaterThan.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionIf.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLessThan.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLoadEntitySpecs.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLoadInterface.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLoadModels.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLoadMusic.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLoadScript.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLoadSound.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionLog.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionPlayMusic.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionPlaySound.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionRegister.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetAmbientLightColour.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetCameraOrientation.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetCameraPosition.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetCameraViewPosition.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetCameraViewSize.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetCursorMode.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetEntityGroupRenderable.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetEntityOrientation.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetEntityPosition.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetEntityScale.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetEntityVisible.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetMusicVolume.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetPointLightColour.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetPointLightPosition.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSoundAttenuation.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSoundBuffer.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSoundListenerPosition.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSoundMinDistance.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSpotLightColour.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSpotLightCone.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSpotLightPosition.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSpotLightTarget.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionUnloadScript.cpp" />
+    <ClCompile Include="source\Game\Modules\ParamDefinition.cpp" />
+    <ClCompile Include="source\Game\Modules\Script.cpp" />
+    <ClCompile Include="source\Game\Modules\ScriptingModule.cpp" />
+    <ClCompile Include="source\Game\Modules\ScriptingNumberGenerator.cpp" />
+    <ClCompile Include="source\Game\Modules\ScriptLoader.cpp" />
+    <ClCompile Include="source\Game\Modules\ScriptParam.cpp" />
+    <ClCompile Include="source\Game\Modules\ScriptTimerRegistrar.cpp" />
+    <ClCompile Include="source\Game\Modules\ScriptVar.cpp" />
+    <ClCompile Include="source\Game\Modules\FunctionSetSoundChannelVolume.cpp" />
+    <ClCompile Include="source\Scene\Modules\ActingModule.cpp" />
+    <ClCompile Include="source\Scene\Modules\Actor.cpp" />
+    <ClCompile Include="source\Scene\Modules\AIAvoid.cpp" />
+    <ClCompile Include="source\Scene\Modules\AIModule.cpp" />
+    <ClCompile Include="source\Scene\Modules\AINode.cpp" />
+    <ClCompile Include="source\Scene\Modules\AIRequestedNode.cpp" />
+    <ClCompile Include="source\Scene\Modules\AISeek.cpp" />
+    <ClCompile Include="source\Scene\Modules\AIWander.cpp" />
+    <ClCompile Include="source\Scene\Modules\Animation.cpp" />
+    <ClCompile Include="source\Scene\Modules\AnimationLoader.cpp" />
+    <ClCompile Include="source\Scene\Modules\AnimationManager.cpp" />
+    <ClCompile Include="source\Scene\Modules\Behaviour.cpp" />
+    <ClCompile Include="source\Scene\Modules\CollisionEvent.cpp" />
+    <ClCompile Include="source\Scene\Modules\CubeMap.cpp" />
+    <ClCompile Include="source\Scene\Modules\Entity.cpp" />
+    <ClCompile Include="source\Scene\Modules\EntityMap.cpp" />
+    <ClCompile Include="source\Scene\Modules\EntityModule.cpp" />
+    <ClCompile Include="source\Scene\Modules\EntityToken.cpp" />
+    <ClCompile Include="source\Scene\Modules\GUIModule.cpp" />
+    <ClCompile Include="source\Scene\Modules\HitBall.cpp" />
+    <ClCompile Include="source\Scene\Modules\HitBoxOO.cpp" />
+    <ClCompile Include="source\Scene\Modules\HitRegion.cpp" />
+    <ClCompile Include="source\Scene\Modules\Mesh.cpp" />
+    <ClCompile Include="source\Scene\Modules\MeshLoader.cpp" />
+    <ClCompile Include="source\Scene\Modules\Model.cpp" />
+    <ClCompile Include="source\Scene\Modules\ModelManager.cpp" />
+    <ClCompile Include="source\Scene\Modules\ParticuleModule.cpp" />
+    <ClCompile Include="source\Scene\Modules\PhysicsListener.cpp" />
+    <ClCompile Include="source\Scene\Modules\PhysicsModule.cpp" />
+    <ClCompile Include="source\Scene\Modules\PhysicsNode.cpp" />
+    <ClCompile Include="source\Scene\Modules\UIButton.cpp" />
+    <ClCompile Include="source\Scene\Modules\UIComponent.cpp" />
+    <ClCompile Include="source\Scene\Modules\UIImage.cpp" />
+    <ClCompile Include="source\Scene\Modules\UILoader.cpp" />
+    <ClCompile Include="source\Scene\Modules\UIText.cpp" />
+    <ClCompile Include="source\System\Framework\ConfigurationManager.cpp" />
+    <ClCompile Include="source\System\Framework\Dependency.cpp" />
+    <ClCompile Include="source\System\Framework\Engine.cpp" />
+    <ClCompile Include="source\System\Framework\Launcher.cpp" />
+    <ClCompile Include="source\System\Framework\Module.cpp" />
+    <ClCompile Include="source\System\Framework\ModuleManager.cpp" />
+    <ClCompile Include="source\System\Framework\Service.cpp" />
+    <ClCompile Include="source\System\Framework\ServiceManager.cpp" />
+    <ClCompile Include="source\System\Modules\AmbientLight.cpp" />
+    <ClCompile Include="source\System\Modules\AudioChannel.cpp" />
+    <ClCompile Include="source\System\Modules\AudioModule.cpp" />
+    <ClCompile Include="source\System\Modules\Bitmap.cpp" />
+    <ClCompile Include="source\System\Modules\Camera.cpp" />
+    <ClCompile Include="source\System\Modules\CommandModule.cpp" />
+    <ClCompile Include="source\System\Modules\CommandNode.cpp" />
+    <ClCompile Include="source\System\Modules\ControlSet.cpp" />
+    <ClCompile Include="source\System\Modules\EventModule.cpp" />
+    <ClCompile Include="source\System\Modules\Image.cpp" />
+    <ClCompile Include="source\System\Modules\InputListener.cpp" />
+    <ClCompile Include="source\System\Modules\InputManager.cpp" />
+    <ClCompile Include="source\System\Modules\KeyAction.cpp" />
+    <ClCompile Include="source\System\Modules\Light.cpp" />
+    <ClCompile Include="source\System\Modules\LightingLimits.cpp" />
+    <ClCompile Include="source\System\Modules\MaterialLibrary.cpp" />
+    <ClCompile Include="source\System\Modules\MaterialLibraryLoader.cpp" />
+    <ClCompile Include="source\System\Modules\MaterialLibraryManager.cpp" />
+    <ClCompile Include="source\System\Modules\PointLight.cpp" />
+    <ClCompile Include="source\System\Modules\ResourceModule.cpp" />
+    <ClCompile Include="source\System\Modules\Scene.cpp" />
+    <ClCompile Include="source\System\Modules\SceneManager.cpp" />
+    <ClCompile Include="source\System\Modules\Shader.cpp" />
+    <ClCompile Include="source\System\Modules\ShaderManager.cpp" />
+    <ClCompile Include="source\System\Modules\SoundNode.cpp" />
+    <ClCompile Include="source\System\Modules\SpotLight.cpp" />
+    <ClCompile Include="source\System\Modules\Texture.cpp" />
+    <ClCompile Include="source\System\Modules\TextureLoader.cpp" />
+    <ClCompile Include="source\System\Modules\TextureManager.cpp" />
+    <ClCompile Include="source\System\Modules\Timer.cpp" />
+    <ClCompile Include="source\System\Modules\TimingModule.cpp" />
+    <ClCompile Include="source\System\Modules\WindowEventsManager.cpp" />
+    <ClCompile Include="source\System\Modules\WindowListener.cpp" />
+    <ClCompile Include="source\System\Modules\WindowModule.cpp" />
+    <ClCompile Include="source\System\Services\FileSystemWatcherService.cpp" />
+    <ClCompile Include="source\System\Services\LoggerNode.cpp" />
+    <ClCompile Include="source\System\Services\LoggerService.cpp" />
+    <ClCompile Include="source\System\Services\ModuleWatcherService.cpp" />
+    <ClCompile Include="source\System\Services\ResourceCleanerService.cpp" />
+    <ClCompile Include="source\System\Services\ResourceUsageTrackerService.cpp" />
+    <ClCompile Include="source\System\Utility\ArbitraryProperty.cpp" />
+    <ClCompile Include="source\System\Utility\DirectoryListing.cpp" />
+    <ClCompile Include="source\System\Utility\FileUtils.cpp" />
+    <ClCompile Include="source\System\Utility\HasArbitraryProperties.cpp" />
+    <ClCompile Include="source\System\Utility\HasIndex.cpp" />
+    <ClCompile Include="source\System\Utility\HasModificationFlag.cpp" />
+    <ClCompile Include="source\System\Utility\MathsUtils.cpp" />
+    <ClCompile Include="source\System\Utility\MiscUtils.cpp" />
+    <ClCompile Include="source\System\Utility\StringUtils.cpp" />
+    <ClCompile Include="source\System\Utility\XMLDescriptor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Game\Modules\EditorModule.h" />
+    <ClInclude Include="include\Game\Modules\Function.h" />
+    <ClInclude Include="include\Game\Modules\FunctionActivateControlSet.h" />
+    <ClInclude Include="include\Game\Modules\FunctionActivateScene.h" />
+    <ClInclude Include="include\Game\Modules\FunctionAdd.h" />
+    <ClInclude Include="include\Game\Modules\FunctionAssign.h" />
+    <ClInclude Include="include\Game\Modules\FunctionBindCameraToEntity.h" />
+    <ClInclude Include="include\Game\Modules\FunctionBindEntityKeyAction.h" />
+    <ClInclude Include="include\Game\Modules\FunctionBindEntityMovementMapping.h" />
+    <ClInclude Include="include\Game\Modules\FunctionBindScriptKeyAction.h" />
+    <ClInclude Include="include\Game\Modules\FunctionBindSpotLightToEntity.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateAmbientLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateCamera.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateControlSet.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateEntity.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateEntityGroup.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreatePointLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateScene.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateSound.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateSoundChannel.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateSpotLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionCreateTimer.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeactivateControlSet.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeactivateScene.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteAmbientLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteCamera.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteControlSet.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteEntity.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeletePointLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteScene.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteSound.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDeleteSpotLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDisableAmbientLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDisableCamera.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDisablePointLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDisableSpotLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionDisplayInterface.h" />
+    <ClInclude Include="include\Game\Modules\FunctionEnableAmbientLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionEnableCamera.h" />
+    <ClInclude Include="include\Game\Modules\FunctionEnablePointLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionEnableSpotLight.h" />
+    <ClInclude Include="include\Game\Modules\FunctionEqual.h" />
+    <ClInclude Include="include\Game\Modules\FunctionExecuteScript.h" />
+    <ClInclude Include="include\Game\Modules\FunctionGetRandomFloat.h" />
+    <ClInclude Include="include\Game\Modules\FunctionGetRandomInt.h" />
+    <ClInclude Include="include\Game\Modules\FunctionGreaterThan.h" />
+    <ClInclude Include="include\Game\Modules\FunctionIf.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLessThan.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLoadEntitySpecs.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLoadInterface.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLoadModels.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLoadMusic.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLoadScript.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLoadSound.h" />
+    <ClInclude Include="include\Game\Modules\FunctionLog.h" />
+    <ClInclude Include="include\Game\Modules\FunctionPlayMusic.h" />
+    <ClInclude Include="include\Game\Modules\FunctionPlaySound.h" />
+    <ClInclude Include="include\Game\Modules\FunctionRegister.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetAmbientLightColour.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetCameraOrientation.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetCameraPosition.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetCameraViewPosition.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetCameraViewSize.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetCursorMode.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetEntityGroupRenderable.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetEntityGroupScene.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetEntityOrientation.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetEntityPosition.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetEntityScale.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetEntityVisible.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetMusicVolume.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetPointLightColour.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetPointLightPosition.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSoundAttenuation.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSoundBuffer.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSoundChannelVolume.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSoundListenerPosition.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSoundMinDistance.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSpotLightColour.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSpotLightCone.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSpotLightPosition.h" />
+    <ClInclude Include="include\Game\Modules\FunctionSetSpotLightTarget.h" />
+    <ClInclude Include="include\Game\Modules\FunctionUnloadScript.h" />
+    <ClInclude Include="include\Game\Modules\ParamDefinition.h" />
+    <ClInclude Include="include\Game\Modules\Script.h" />
+    <ClInclude Include="include\Game\Modules\ScriptActionTerminal.h" />
+    <ClInclude Include="include\Game\Modules\ScriptInfoPack.h" />
+    <ClInclude Include="include\Game\Modules\ScriptingModule.h" />
+    <ClInclude Include="include\Game\Modules\ScriptingNumberGenerator.h" />
+    <ClInclude Include="include\Game\Modules\ScriptLoader.h" />
+    <ClInclude Include="include\Game\Modules\ScriptParam.h" />
+    <ClInclude Include="include\Game\Modules\ScriptTimerRegistrar.h" />
+    <ClInclude Include="include\Game\Modules\ScriptVar.h" />
+    <ClInclude Include="include\Scene\Modules\ActingModule.h" />
+    <ClInclude Include="include\Scene\Modules\Actor.h" />
+    <ClInclude Include="include\Scene\Modules\AIAvoid.h" />
+    <ClInclude Include="include\Scene\Modules\AIDirection.h" />
+    <ClInclude Include="include\Scene\Modules\AIModule.h" />
+    <ClInclude Include="include\Scene\Modules\AINode.h" />
+    <ClInclude Include="include\Scene\Modules\AIRequestedNode.h" />
+    <ClInclude Include="include\Scene\Modules\AISeek.h" />
+    <ClInclude Include="include\Scene\Modules\AIWander.h" />
+    <ClInclude Include="include\Scene\Modules\Animation.h" />
+    <ClInclude Include="include\Scene\Modules\AnimationLoader.h" />
+    <ClInclude Include="include\Scene\Modules\AnimationManager.h" />
+    <ClInclude Include="include\Scene\Modules\Behaviour.h" />
+    <ClInclude Include="include\Scene\Modules\CollisionEvent.h" />
+    <ClInclude Include="include\Scene\Modules\CubeMap.h" />
+    <ClInclude Include="include\Scene\Modules\Entity.h" />
+    <ClInclude Include="include\Scene\Modules\EntityFlags.h" />
+    <ClInclude Include="include\Scene\Modules\EntityGroup.h" />
+    <ClInclude Include="include\Scene\Modules\EntityMap.h" />
+    <ClInclude Include="include\Scene\Modules\EntityModule.h" />
+    <ClInclude Include="include\Scene\Modules\EntitySpecification.h" />
+    <ClInclude Include="include\Scene\Modules\EntityToken.h" />
+    <ClInclude Include="include\Scene\Modules\GUIModule.h" />
+    <ClInclude Include="include\Scene\Modules\HitBall.h" />
+    <ClInclude Include="include\Scene\Modules\HitBoxOO.h" />
+    <ClInclude Include="include\Scene\Modules\HitRegion.h" />
+    <ClInclude Include="include\Scene\Modules\Mesh.h" />
+    <ClInclude Include="include\Scene\Modules\MeshGroup.h" />
+    <ClInclude Include="include\Scene\Modules\MeshLoader.h" />
+    <ClInclude Include="include\Scene\Modules\Model.h" />
+    <ClInclude Include="include\Scene\Modules\ModelInfo.h" />
+    <ClInclude Include="include\Scene\Modules\ModelManager.h" />
+    <ClInclude Include="include\Scene\Modules\ParticuleModule.h" />
+    <ClInclude Include="include\Scene\Modules\PhysicsListener.h" />
+    <ClInclude Include="include\Scene\Modules\PhysicsModule.h" />
+    <ClInclude Include="include\Scene\Modules\PhysicsNode.h" />
+    <ClInclude Include="include\Scene\Modules\UIButton.h" />
+    <ClInclude Include="include\Scene\Modules\UIComponent.h" />
+    <ClInclude Include="include\Scene\Modules\UIImage.h" />
+    <ClInclude Include="include\Scene\Modules\UILoader.h" />
+    <ClInclude Include="include\Scene\Modules\UIText.h" />
+    <ClInclude Include="include\System\Framework\ConfigurationListener.h" />
+    <ClInclude Include="include\System\Framework\ConfigurationManager.h" />
+    <ClInclude Include="include\System\Framework\ConfigurationProperties.h" />
+    <ClInclude Include="include\System\Framework\Dependency.h" />
+    <ClInclude Include="include\System\Framework\Engine.h" />
+    <ClInclude Include="include\System\Framework\Module.h" />
+    <ClInclude Include="include\System\Framework\ModuleLifetimeListener.h" />
+    <ClInclude Include="include\System\Framework\ModuleManager.h" />
+    <ClInclude Include="include\System\Framework\Modules.h" />
+    <ClInclude Include="include\System\Framework\Service.h" />
+    <ClInclude Include="include\System\Framework\ServiceLifetimeListener.h" />
+    <ClInclude Include="include\System\Framework\ServiceManager.h" />
+    <ClInclude Include="include\System\Framework\Services.h" />
+    <ClInclude Include="include\System\Modules\AmbientLight.h" />
+    <ClInclude Include="include\System\Modules\AudioChannel.h" />
+    <ClInclude Include="include\System\Modules\AudioChannelListener.h" />
+    <ClInclude Include="include\System\Modules\AudioModule.h" />
+    <ClInclude Include="include\System\Modules\Bitmap.h" />
+    <ClInclude Include="include\System\Modules\Camera.h" />
+    <ClInclude Include="include\System\Modules\CameraListener.h" />
+    <ClInclude Include="include\System\Modules\CommandListener.h" />
+    <ClInclude Include="include\System\Modules\CommandModule.h" />
+    <ClInclude Include="include\System\Modules\CommandNode.h" />
+    <ClInclude Include="include\System\Modules\CommandNodeInfo.h" />
+    <ClInclude Include="include\System\Modules\CommandNodeListener.h" />
+    <ClInclude Include="include\System\Modules\ControlSet.h" />
+    <ClInclude Include="include\System\Modules\EventListener.h" />
+    <ClInclude Include="include\System\Modules\EventModule.h" />
+    <ClInclude Include="include\System\Modules\IlluminationModels.h" />
+    <ClInclude Include="include\System\Modules\Image.h" />
+    <ClInclude Include="include\System\Modules\InputListener.h" />
+    <ClInclude Include="include\System\Modules\InputManager.h" />
+    <ClInclude Include="include\System\Modules\KeyAction.h" />
+    <ClInclude Include="include\System\Modules\KeyMapping.h" />
+    <ClInclude Include="include\System\Modules\Light.h" />
+    <ClInclude Include="include\System\Modules\LightingLimits.h" />
+    <ClInclude Include="include\System\Modules\LightListener.h" />
+    <ClInclude Include="include\System\Modules\Material.h" />
+    <ClInclude Include="include\System\Modules\MaterialLibrary.h" />
+    <ClInclude Include="include\System\Modules\MaterialLibraryLoader.h" />
+    <ClInclude Include="include\System\Modules\MaterialLibraryManager.h" />
+    <ClInclude Include="include\System\Modules\MouseAction.h" />
+    <ClInclude Include="include\System\Modules\MouseMapping.h" />
+    <ClInclude Include="include\System\Modules\MovementMapping.h" />
+    <ClInclude Include="include\System\Modules\MusicFadeInfo.h" />
+    <ClInclude Include="include\System\Modules\PointLight.h" />
+    <ClInclude Include="include\System\Modules\Renderable.h" />
+    <ClInclude Include="include\System\Modules\RenderData.h" />
+    <ClInclude Include="include\System\Modules\RenderModes.h" />
+    <ClInclude Include="include\System\Modules\ResourceContainer.h" />
+    <ClInclude Include="include\System\Modules\ResourceModule.h" />
+    <ClInclude Include="include\System\Modules\Scene.h" />
+    <ClInclude Include="include\System\Modules\SceneManager.h" />
+    <ClInclude Include="include\System\Modules\SceneManagerListener.h" />
+    <ClInclude Include="include\System\Modules\Shader.h" />
+    <ClInclude Include="include\System\Modules\ShaderManager.h" />
+    <ClInclude Include="include\System\Modules\SoundDeleteInfo.h" />
+    <ClInclude Include="include\System\Modules\SoundNode.h" />
+    <ClInclude Include="include\System\Modules\SoundNodeListener.h" />
+    <ClInclude Include="include\System\Modules\SpotLight.h" />
+    <ClInclude Include="include\System\Modules\SpotLightStyles.h" />
+    <ClInclude Include="include\System\Modules\stb_image.h" />
+    <ClInclude Include="include\System\Modules\Texture.h" />
+    <ClInclude Include="include\System\Modules\TextureLoader.h" />
+    <ClInclude Include="include\System\Modules\TextureManager.h" />
+    <ClInclude Include="include\System\Modules\Timer.h" />
+    <ClInclude Include="include\System\Modules\TimerListener.h" />
+    <ClInclude Include="include\System\Modules\TimingModule.h" />
+    <ClInclude Include="include\System\Modules\WindowEventsManager.h" />
+    <ClInclude Include="include\System\Modules\WindowListener.h" />
+    <ClInclude Include="include\System\Modules\WindowModule.h" />
+    <ClInclude Include="include\System\Modules\WindowPositionStyle.h" />
+    <ClInclude Include="include\System\Modules\WindowStyle.h" />
+    <ClInclude Include="include\System\Services\FileSystemWatcherService.h" />
+    <ClInclude Include="include\System\Services\LoggerNode.h" />
+    <ClInclude Include="include\System\Services\LoggerNodeListener.h" />
+    <ClInclude Include="include\System\Services\LoggerService.h" />
+    <ClInclude Include="include\System\Services\ModuleWatcherService.h" />
+    <ClInclude Include="include\System\Services\ResourceCleanerService.h" />
+    <ClInclude Include="include\System\Services\ResourceUsageTrackerService.h" />
+    <ClInclude Include="include\System\Utility\ArbitraryProperty.h" />
+    <ClInclude Include="include\System\Utility\ArbitraryPropertyListener.h" />
+    <ClInclude Include="include\System\Utility\DirectoryListing.h" />
+    <ClInclude Include="include\System\Utility\FileUtils.h" />
+    <ClInclude Include="include\System\Utility\HasArbitraryProperties.h" />
+    <ClInclude Include="include\System\Utility\HasId.h" />
+    <ClInclude Include="include\System\Utility\HasIndex.h" />
+    <ClInclude Include="include\System\Utility\HasModificationFlag.h" />
+    <ClInclude Include="include\System\Utility\MathsUtils.h" />
+    <ClInclude Include="include\System\Utility\MiscUtils.h" />
+    <ClInclude Include="include\System\Utility\StringUtils.h" />
+    <ClInclude Include="include\System\Utility\VectorInd.h" />
+    <ClInclude Include="include\System\Utility\VectorSim.h" />
+    <ClInclude Include="include\System\Utility\XMLDescriptor.h" />
+    <ClInclude Include="libs\tinyxml\tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\Debug\data\shaders\multi_light.frag" />
+    <None Include="build\Debug\data\shaders\multi_light.vert" />
+    <None Include="build\Debug\data\shaders\skybox.frag" />
+    <None Include="build\Debug\data\shaders\skybox.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

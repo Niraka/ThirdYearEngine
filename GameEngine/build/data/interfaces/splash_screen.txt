@@ -1,0 +1,7 @@
+//Define the object in the main menu
+//Start each line with a letter defining the type of object (B = button, I = Image, T = text)
+//Then, give parameters - name, Xpos, Ypos, width, height, Image filename - each seperated by a space, note that these are measured as a percentage of screen size
+//Then, for text objects, give the string of text
+
+N splash_screen
+I testImage 0 0 100 100 SplashScreen.png

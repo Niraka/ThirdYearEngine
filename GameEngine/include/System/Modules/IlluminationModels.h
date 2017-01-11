@@ -1,0 +1,25 @@
+/**
+Illumination models based on the following wavefront obj specification: 
+http://paulbourke.net/dataformats/mtl/
+
+@author Nathan */
+
+#ifndef ILLUMINATION_MODELS_H
+#define ILLUMINATION_MODELS_H
+
+enum IlluminationModels
+{
+	COLOUR_ON_AMBIENT_OFF,
+	COLOUR_ON_AMBIENT_ON,
+	HIGHLIGHTS_ON,
+	REFLECTION_ON_RAYTRACE_ON,
+	GLASS_ON_RAYTRACE_ON,
+	FRESNEL_ON_RAYTRACE_ON,
+	REFRACTION_ON_FRESNEL_OFF_RAYTRACE_ON,
+	REFRACTION_ON_FRESNEL_ON_RAYTRACE_ON,
+	REFLECTION_ON_RAYTRACE_OFF,
+	GLASS_ON_RAYTRACE_OFF,
+	CASTS_SHADOWS_ON_INVISIBLE_SURFACES
+};
+
+#endif

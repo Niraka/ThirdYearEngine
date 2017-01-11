@@ -1,0 +1,5 @@
+createTimer(game_fade_in_loop, 0.2, game_light_fade_in)
+
+###############
+# Loops the ambient light fade-in affect for the game
+#

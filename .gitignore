@@ -45,3 +45,20 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Custom directories
+GameEngine/build/Release/data/*
+GameEngine/build/Debug/logs/*
+GameEngine/build/Release/logs/*
+GameEngine/temp/Debug/*
+GameEngine/temp/Release/*
+*.~vsdx
+*.ilk
+*.pdb
+*.sdf
+*.opensdf
+*.v12.suo
+*.v11.suo
+*.filters
+*.filters
+*.suo

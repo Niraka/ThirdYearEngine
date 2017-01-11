@@ -1,0 +1,2 @@
+deactivateScene(menu)
+if(bGameCreated, start_game, create_game)

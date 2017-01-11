@@ -1,0 +1,133 @@
+int iGameAmbientLightId
+int iGameAmbientLightFadeTicks
+float fGameAmbientLightColour
+int iGameCameraId
+int iPlayerEntityId
+int iGamePlayerSpotLightId
+int iGameSpotLight1
+int iGameSpotLight2
+int iGameSpotLight3
+int iGameSpotLight4
+int iGameSpotLight5
+int iGameControlSetId
+float fTempXPos
+float fTempYPos
+
+# Create the scene
+createScene(game)
+activateScene(game)
+setCursorMode(212995)
+
+# Create the camera
+assign(iGameCameraId, createCamera())
+enableCamera(iGameCameraId)
+
+# Create the lights
+assign(iGameAmbientLightId, createAmbientLight())
+assign(iGamePlayerSpotLightId, createSpotLight())
+
+# Create the entities
+##############################
+# Player
+createEntityGroup(game_entity_group)
+assign(iPlayerEntityId, createEntity(monster, game_entity_group))
+setEntityPosition(iPlayerEntityId, 0.0, 0.0, 0.0)
+setEntityScale(iPlayerEntityId, 0.3, 0.3, 0.3)
+
+# Create the controls
+assign(iGameControlSetId, createControlSet())
+bindEntityKeyAction(iGameControlSetId, iPlayerEntityId, forward, 87, 1, game)
+bindEntityKeyAction(iGameControlSetId, iPlayerEntityId, backward, 83, 1, game)
+bindEntityKeyAction(iGameControlSetId, iPlayerEntityId, left, 65, 1, game)
+bindEntityKeyAction(iGameControlSetId, iPlayerEntityId, right, 68, 1, game)
+bindScriptKeyAction(iGameControlSetId, end_game, execute, 259, 1, game)
+bindEntityMovementMapping(iGameControlSetId, iPlayerEntityId)
+
+# Bind stuff
+bindCameraToEntity(iGameCameraId, iPlayerEntityId)
+bindSpotLightToEntity(iGamePlayerSpotLightId, iPlayerEntityId)
+
+##############################
+# FLOOR
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 10.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 10.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 10.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 15.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 15.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(floor, game_entity_group))
+setEntityPosition(iTempEntityId, 15.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+##############################
+# CEILING
+
+##############################
+# WALLS
+# RIGHT-WALL
+assign(iTempEntityId, createEntity(wall, game_entity_group))
+setEntityPosition(iTempEntityId, -7.5, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+assign(iTempEntityId, createEntity(wall, game_entity_group))
+setEntityPosition(iTempEntityId, -7.5, 0.0, -20.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+# LEFT-WALL
+assign(iTempEntityId, createEntity(wall, game_entity_group))
+setEntityPosition(iTempEntityId, 7.5, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+assign(iTempEntityId, createEntity(wall, game_entity_group))
+setEntityPosition(iTempEntityId, 7.5, 0.0, -16.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+# FORWARD-WALL
+assign(iTempEntityId, createEntity(wall, game_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, 7.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+##############################
+assign(bGameCreated, true)
+
+# Start the game
+executeScript(start_game)
+
+###############
+# Creates the components for the game
+# 
+#

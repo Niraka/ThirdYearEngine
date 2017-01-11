@@ -1,0 +1,12 @@
+createScene(splash_screen)
+activateScene(splash_screen)
+enableCamera(createCamera())
+activateGUI(splash_gui)
+loadScript(load_game_assets, load_game_assets.txt)
+loadScript(create_main_menu, create_main_menu.txt)
+loadScript(create_game, create_game.txt)
+executeScript(load_game_assets)
+createTimer(splash_screen_expired, 2.5, create_main_menu)
+
+##################################################
+# Creates, configures and displays the splash screen

@@ -1,0 +1,7 @@
+setEntityGroupRenderable(game_entity_group, false)
+executeScript(show_main_menu)
+
+###############
+# Cleans up and loose ends from a play-through of the game and returns the
+# player to the main menu
+#

@@ -1,0 +1,5 @@
+add(iBeginSeqCounter, -1)
+add(fMenuAmbientLightColour, -0.0125)
+setAmbientLightColour(iMenuAmbientLightId, fMenuAmbientLightColour, fMenuAmbientLightColour, fMenuAmbientLightColour)
+
+if(lessThan(iBeginSeqCounter, 1), null, begin_game_sequence_2_loop2)

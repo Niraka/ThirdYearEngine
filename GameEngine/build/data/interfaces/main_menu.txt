@@ -1,0 +1,9 @@
+//Define the object in the main menu
+//Start each line with a letter defining the type of object (B = button, I = Image, T = text)
+//Then, give parameters - name, Xpos, Ypos, width, height, Image filename - each seperated by a space, note that these are measured as a percentage of screen size
+//Then, for text objects, give the string of text
+
+N main_menu
+
+B startbutton 50 30 10 10 StartButton.png
+B exitbutton 50 50 10 10 ExitButton.png

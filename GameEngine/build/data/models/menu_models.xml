@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<name>floor</name>
+	<mesh>floor.obj</mesh>
+	<material>floor.mtl</material>
+</model>
+<model>
+	<name>lamp</name>
+	<mesh>lamp.obj</mesh>
+	<material>lamp.mtl</material>
+</model>
+<model>
+	<name>shelf</name>
+	<mesh>shelf.obj</mesh>
+	<material>shelf.mtl</material>
+</model>
+<model>
+	<name>trolley</name>
+	<mesh>trolley.obj</mesh>
+	<material>trolley.mtl</material>
+</model>
+<model>
+	<name>doughnut_box</name>
+	<mesh>DoughnutBox.obj</mesh>
+	<material>DoughnutBox.mtl</material>
+</model>
+<model>
+	<name>doughnut</name>
+	<mesh>Doughnut.obj</mesh>
+	<material>Doughnut.mtl</material>
+</model>
+<model>
+	<name>bread</name>
+	<mesh>Bread.obj</mesh>
+	<material>Bread.mtl</material>
+</model>
+<model>
+	<name>monster</name>
+	<mesh>monster.obj</mesh>
+	<material>monster.mtl</material>
+</model>
+<model>
+	<name>wall</name>
+	<mesh>wall.obj</mesh>
+	<material>wall.mtl</material>
+</model>
+<model>
+	<name>ceiling</name>
+	<mesh>ceiling.obj</mesh>
+	<material>ceiling.mtl</material>
+</model>
+<model>
+	<name>begin_text</name>
+	<mesh>begin_text.obj</mesh>
+	<material>begin_text.mtl</material>
+</model>

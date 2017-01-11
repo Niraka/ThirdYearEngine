@@ -1,0 +1,27 @@
+playMusic(menu_music, true, 3.0)
+activateScene(menu)
+activateControlSet(iMenuControlSetId)
+setEntityGroupRenderable(game_entity_group, false)
+setEntityGroupRenderable(menu_entity_group, true)
+
+assign(fMenuAmbientLightColour, 0.25)
+setAmbientLightColour(iMenuAmbientLightId, fMenuAmbientLightColour, fMenuAmbientLightColour, fMenuAmbientLightColour)
+
+enableSpotLight(iMenuSpotLightId)
+
+setSoundListenerPosition(9.0, 3.0, 0.0)
+setEntityPosition(iMenuEnemyId, -2.5, 0.0, -6.5)
+setEntityOrientation(iMenuEnemyId, 0.0, 50.0, 0.0)
+setEntityVisible(iMenuEnemyId, false)
+
+# Move camera
+#setCameraPosition(iCameraId, 0.0, 3.0, 0.0)
+#setCameraOrientation(iCameraId, 0.0, 30.0, 30.0)
+
+# Start the light flicker effect
+assign(bFlickerEnabled, true)
+executeScript(light_flicker_on_check)
+
+###############################
+# Create the menu and display it
+#

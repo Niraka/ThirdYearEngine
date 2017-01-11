@@ -1,0 +1,3 @@
+enableSpotLight(iMenuSpotLightId, menu)
+setEntityVisible(iMenuEnemyId, false)
+createTimer(light_flicker_on, getRandomFloat(0.1, 8.5), light_flicker_off)

@@ -1,0 +1,10 @@
+loadMusic(menu_music, music\\menu_music.wav)
+loadMusic(game_music, music\\game_music.wav)
+loadModels(menu_models.xml)
+loadModels(game_models.xml)
+loadEntitySpecs(menu_specs.xml)
+loadEntitySpecs(game_specs.xml)
+
+###############################
+# Load all game assets - menu included
+#

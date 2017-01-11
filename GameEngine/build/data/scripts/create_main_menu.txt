@@ -1,0 +1,227 @@
+int iTempEntityId
+int iCameraId
+int iMenuAmbientLightId
+int iMenuPointLightId
+int iMenuSpotLightId
+int iMenuEnemyId
+bool bFlickerEnabled
+float fMenuAmbientLightColour
+bool bGameCreated
+int iMenuControlSetId
+
+# Init important vars
+assign(bGameCreated, false)
+
+# Load all scripts relating to the game
+loadScript(start_game, start_game.txt)
+loadScript(end_game, end_game.txt)
+loadScript(game_light_fade_in, game_light_fade_in.txt)
+loadScript(game_light_fade_in_loop, game_light_fade_in_loop.txt)
+
+loadScript(begin_game_sequence_hide, begin_game_sequence_hide.txt)
+loadScript(begin_game_sequence_1, begin_game_sequence_1.txt)
+loadScript(begin_game_sequence_2, begin_game_sequence_2.txt)
+loadScript(begin_game_sequence_2_loop1, begin_game_sequence_2_loop1.txt)
+loadScript(begin_game_sequence_2_loop2, begin_game_sequence_2_loop2.txt)
+loadScript(begin_game_sequence_3, begin_game_sequence_3.txt)
+loadScript(begin_game_sequence_4, begin_game_sequence_4.txt)
+loadScript(begin_game_sequence_5, begin_game_sequence_5.txt)
+loadScript(begin_game_sequence_6, begin_game_sequence_6.txt)
+loadScript(begin_game_sequence_7, begin_game_sequence_7.txt)
+loadScript(begin_game_sequence_end, begin_game_sequence_end.txt)
+loadScript(show_main_menu, show_main_menu.txt)
+
+# Set the music volume
+setMusicVolume(50.0)
+
+# Create the scene
+createScene(menu)
+activateScene(menu)
+assign(iCameraId, createCamera())
+enableCamera(iCameraId)
+
+# Create the controls
+assign(iMenuControlSetId, createControlSet())
+bindScriptKeyAction(iMenuControlSetId, begin_game_sequence_1, execute, 257, 0, menu)
+
+assign(iMenuAmbientLightId, createAmbientLight())
+assign(fMenuAmbientLightColour, 0.05)
+setAmbientLightColour(iMenuAmbientLightId, fMenuAmbientLightColour, fMenuAmbientLightColour, fMenuAmbientLightColour)
+#enableAmbientLight(iMenuAmbientLightId)
+
+assign(iMenuSpotLightId, createSpotLight())
+setSpotLightColour(iMenuSpotLightId, 0.9, 0.9, 0.9)
+setSpotLightPosition(iMenuSpotLightId, 0.0, 6.0, -2.5)
+setSpotLightTarget(iMenuSpotLightId, 0.0, 5.0, -2.5)
+setSpotLightCone(iMenuSpotLightId, 40.0)
+enableSpotLight(iMenuSpotLightId)
+
+assign(iMenuPointLightId, createPointLight())
+setPointLightColour(iMenuPointLightId, 0.2, 0.2, 0.2)
+setPointLightPosition(iMenuPointLightId, 10.0, 3.0, 0.0)
+enablePointLight(iMenuPointLightId)
+
+# Populate the scene
+createEntityGroup(menu_entity_group)
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, -10.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, -10.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(floor, menu_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, 5.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(trolley, menu_entity_group))
+setEntityPosition(iTempEntityId, -1.0, 0.8, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 35.0, 0.0)
+
+assign(iTempEntityId, createEntity(trolley, menu_entity_group))
+setEntityPosition(iTempEntityId, 3.5, 0.85, -4.25)
+setEntityOrientation(iTempEntityId, -85.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(shelf, menu_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, -7.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+setEntityScale(iTempEntityId, 1.0, 1.8, 1.0)
+
+assign(iTempEntityId, createEntity(shelf, menu_entity_group))
+setEntityPosition(iTempEntityId, 5.0, 0.0, 3.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+setEntityScale(iTempEntityId, 1.0, 1.8, 1.0)
+
+assign(iTempEntityId, createEntity(shelf, menu_entity_group))
+setEntityPosition(iTempEntityId, -8.0, 0.0, -10.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+setEntityScale(iTempEntityId, 2.0, 1.8, 1.0)
+
+assign(iTempEntityId, createEntity(lamp, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 6.1, -2.5)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(shelf, menu_entity_group))
+setEntityPosition(iTempEntityId, -8.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+setEntityScale(iTempEntityId, 2.0, 1.8, 1.0)
+
+assign(iTempEntityId, createEntity(doughnut, menu_entity_group))
+setEntityPosition(iTempEntityId, 3.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 00.0, 0.0)
+setEntityScale(iTempEntityId, 0.2, 0.2, 0.2)
+
+assign(iTempEntityId, createEntity(doughnut, menu_entity_group))
+setEntityPosition(iTempEntityId, 2.4, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 00.0, 0.0)
+setEntityScale(iTempEntityId, 0.2, 0.2, 0.2)
+
+assign(iTempEntityId, createEntity(doughnut, menu_entity_group))
+setEntityPosition(iTempEntityId, 2.2, 0.0, 1.3)
+setEntityOrientation(iTempEntityId, 0.0, 00.0, 0.0)
+setEntityScale(iTempEntityId, 0.2, 0.2, 0.2)
+
+assign(iTempEntityId, createEntity(doughnut_box, menu_entity_group))
+setEntityPosition(iTempEntityId, -5.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 60.0, 0.0)
+setEntityScale(iTempEntityId, 0.25, 0.25, 0.25)
+
+assign(iTempEntityId, createEntity(bread, menu_entity_group))
+setEntityPosition(iTempEntityId, 5.4, 0.15, 2.40)
+setEntityOrientation(iTempEntityId, 0.0, 100.0, 0.0)
+setEntityScale(iTempEntityId, 0.3, 0.3, 0.3)
+
+assign(iTempEntityId, createEntity(ceiling, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 8.0, 10.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(ceiling, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 8.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(ceiling, menu_entity_group))
+setEntityPosition(iTempEntityId, 0.0, 8.0, -10.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(ceiling, menu_entity_group))
+setEntityPosition(iTempEntityId, -10.0, 8.0, 10.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(ceiling, menu_entity_group))
+setEntityPosition(iTempEntityId, -10.0, 8.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+assign(iTempEntityId, createEntity(ceiling, menu_entity_group))
+setEntityPosition(iTempEntityId, -10.0, 8.0, -10.0)
+setEntityOrientation(iTempEntityId, 0.0, 0.0, 0.0)
+
+assign(iTempEntityId, createEntity(wall, menu_entity_group))
+setEntityPosition(iTempEntityId, -9.0, 0.0, 0.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+assign(iTempEntityId, createEntity(wall, menu_entity_group))
+setEntityPosition(iTempEntityId, -9.0, 0.0, -5.0)
+setEntityOrientation(iTempEntityId, 0.0, 90.0, 0.0)
+
+setSoundListenerPosition(9.0, 3.0, 0.0)
+createSoundChannel(sfx)
+loadSound(roar_fx, fx\growl.wav)
+createSound(iMenuEnemyId, roar, sfx)
+setSoundBuffer(iMenuEnemyId, roar, roar_fx)
+setMinDistance(iMenuEnemyId, roar, 4.0)
+
+assign(iMenuEnemyId, createEntity(monster, menu_entity_group))
+setEntityPosition(iMenuEnemyId, -2.5, 0.0, -6.5)
+setEntityOrientation(iMenuEnemyId, 0.0, 50.0, 0.0)
+setEntityScale(iMenuEnemyId, 0.3, 0.3, 0.3)
+setEntityVisible(iMenuEnemyId, false)
+
+assign(iTempEntityId, createEntity(begin_text, menu_entity_group))
+setEntityPosition(iTempEntityId, 7.5, 2.15, 2.5)
+setEntityOrientation(iTempEntityId, -3.0, 175.0, 1.0)
+setEntityScale(iTempEntityId, 0.15, 0.4, 1.0)
+
+# Move camera
+#setCameraPosition(iCameraId, 0.0, 3.0, 0.0)
+#setCameraOrientation(iCameraId, 0.0, 30.0, 30.0)
+
+# Start the light flicker effect
+assign(bFlickerEnabled, true)
+loadScript(light_flicker_on_check, light_flicker_on_check.txt)
+loadScript(light_flicker_on, light_flicker_on.txt)
+loadScript(light_flicker_off, light_flicker_off.txt)
+
+# show the menu
+executeScript(show_main_menu)
+
+###############################
+# Create the menu and display it
+#

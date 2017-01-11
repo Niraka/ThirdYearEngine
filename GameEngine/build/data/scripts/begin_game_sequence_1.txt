@@ -1,0 +1,14 @@
+int iBeginSeqCounter
+
+deactivateControlSet(iMenuControlSetId)
+assign(iBeginSeqCounter, 20)
+assign(bFlickerEnabled, false)
+disableSpotLight(iMenuSpotLightId)
+setEntityVisible(iMenuEnemyId, false)
+playSound(iMenuEnemyId, roar)
+
+executeScript(begin_game_sequence_2)
+
+###############################
+# Begin game animation: Part 1
+# Disable flicker, setup vars 
